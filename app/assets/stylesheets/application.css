@@ -1,10 +1,39 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root { color-scheme: dark; font-family: 'DM Sans', sans-serif; background: #101512; color: #eef3ed; font-synthesis: none; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; background: radial-gradient(ellipse at 50% -30%, #25392b 0%, #101512 58%); }
+button { font: inherit; }
+.simulator { width: min(1200px, calc(100% - 48px)); margin: 0 auto; padding: 64px 0 56px; }
+.simulator__header { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 34px; }
+.eyebrow { margin: 0 0 12px; color: #9cb6a0; font-size: 11px; font-weight: 700; letter-spacing: .19em; }
+h1 { margin: 0; font: 600 clamp(36px, 5vw, 54px)/1 'Space Grotesk', sans-serif; letter-spacing: -.045em; }
+.simulator__intro { margin: 12px 0 0; color: #9ca89e; font-size: 15px; }
+.simulator__actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.button { min-height: 44px; padding: 0 17px; border: 1px solid #344139; border-radius: 8px; color: #eaf1e9; background: #1b241e; font-size: 13px; font-weight: 600; cursor: pointer; transition: background .16s, border-color .16s, transform .16s; }
+.button:hover { border-color: #64816a; transform: translateY(-1px); }
+.button--primary { border-color: #9dc977; color: #152016; background: #a9d583; }
+.button--primary:hover { border-color: #c0e59f; background: #b9e293; }
+.simulator__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.stat { min-height: 89px; padding: 16px 19px; border: 1px solid #29352d; border-radius: 10px; background: #171e19d9; }
+.stat__label { display: block; margin-bottom: 11px; color: #9ca89e; font-size: 12px; }
+.stat strong { display: flex; align-items: center; gap: 9px; font: 600 23px/1 'Space Grotesk', sans-serif; }
+.legend-dot { width: 8px; height: 8px; border-radius: 50%; }
+.legend-dot--herbivore { background: #a9d583; box-shadow: 0 0 10px #a9d58377; }
+.legend-dot--predator { background: #f18a63; box-shadow: 0 0 10px #f18a6377; }
+.world { overflow: hidden; border: 1px solid #2d3a31; border-radius: 12px; background: #151c17; box-shadow: 0 24px 80px #0003; }
+.world__heading { display: flex; justify-content: space-between; align-items: center; padding: 15px 19px; border-bottom: 1px solid #29352d; color: #aab5ab; font-size: 11px; font-weight: 600; letter-spacing: .09em; }
+.world__heading > div { display: flex; align-items: center; gap: 9px; letter-spacing: 0; font-size: 12px; }
+.status-dot { width: 7px; height: 7px; border-radius: 50%; background: #727f74; }
+.status-dot.is-running { background: #a9d583; box-shadow: 0 0 11px #a9d583; }
+.world__canvas { display: block; width: 100%; height: auto; aspect-ratio: 12 / 7; background: #111813; }
+.world__caption { margin: 0; padding: 13px 19px 15px; border-top: 1px solid #29352d; color: #89968b; font-size: 12px; }
+.history { margin-top: 18px; overflow: hidden; border: 1px solid #2d3a31; border-radius: 12px; background: #151c17; }
+.history__heading { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 19px 20px 14px; }
+.history__heading h2 { margin: 0; font: 600 17px 'Space Grotesk', sans-serif; }
+.history__heading p { margin: 6px 0 0; color: #89968b; font-size: 12px; }
+.history__legend { display: flex; gap: 18px; color: #aab5ab; font-size: 11px; }
+.history__legend span { display: flex; align-items: center; gap: 7px; }
+.history__canvas { display: block; width: 100%; height: auto; aspect-ratio: 4 / 1; }
+@media (max-width: 700px) { .simulator { width: min(100% - 28px, 1200px); padding-top: 38px; } .simulator__header { align-items: start; flex-direction: column; gap: 22px; } .simulator__stats { grid-template-columns: repeat(2, 1fr); gap: 9px; } .stat { min-height: 78px; padding: 13px; } .world__canvas { min-height: 300px; object-fit: cover; } .history__heading { align-items: start; flex-direction: column; } .history__canvas { min-height: 130px; } }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }

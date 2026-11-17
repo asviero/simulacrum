@@ -1,4 +1,34 @@
-<div style="font-family: sans-serif; padding: 20px;">
-    <h1>Simulacrum — Simulador de Ecossistema</h1>
-    <canvas id="ecosystem-canvas" width="800" height="600" style="border: 1px solid #333; background-color: #fafafa;"></canvas>
-</div>
+<main class="simulator" data-controller="simulation">
+  <header class="simulator__header">
+    <div>
+      <p class="eyebrow">LABORATÓRIO DIGITAL</p>
+      <h1>Simulacrum</h1>
+      <p class="simulator__intro">Observe um pequeno ecossistema em movimento.</p>
+    </div>
+    <div class="simulator__actions">
+      <button class="button button--primary" type="button" data-simulation-target="toggleButton" data-action="simulation#toggle">Iniciar simulação</button>
+      <button class="button button--quiet" type="button" data-action="simulation#reset">Novo ecossistema</button>
+    </div>
+  </header>
+
+  <section class="simulator__stats" aria-label="Estado do ecossistema">
+    <article class="stat"><span class="stat__label">Tempo</span><strong data-simulation-target="time">00:00</strong></article>
+    <article class="stat"><span class="stat__label">Organismos</span><strong data-simulation-target="population">0</strong></article>
+    <article class="stat"><span class="stat__label">Herbívoros</span><strong><span data-simulation-target="herbivores">0</span><i class="legend-dot legend-dot--herbivore"></i></strong></article>
+    <article class="stat"><span class="stat__label">Predadores</span><strong><span data-simulation-target="predators">0</span><i class="legend-dot legend-dot--predator"></i></strong></article>
+  </section>
+
+  <section class="world" aria-label="Mundo simulado">
+    <div class="world__heading"><div><span class="status-dot" data-simulation-target="statusDot"></span><span data-simulation-target="status">Em pausa</span></div><span>AMBIENTE 01</span></div>
+    <canvas class="world__canvas" data-simulation-target="canvas" width="960" height="560" aria-label="Visualização animada dos organismos"></canvas>
+    <p class="world__caption">Cada ponto representa um organismo. As cores indicam seu papel no ecossistema.</p>
+  </section>
+
+  <section class="history" aria-label="Evolução das populações">
+    <div class="history__heading">
+      <div><h2>População ao longo do tempo</h2><p>Acompanhe as mudanças nas espécies durante a simulação.</p></div>
+      <div class="history__legend"><span><i class="legend-dot legend-dot--herbivore"></i> Herbívoros</span><span><i class="legend-dot legend-dot--predator"></i> Predadores</span></div>
+    </div>
+    <canvas class="history__canvas" data-simulation-target="historyCanvas" width="960" height="240" aria-label="Gráfico da população de herbívoros e predadores"></canvas>
+  </section>
+</main>
