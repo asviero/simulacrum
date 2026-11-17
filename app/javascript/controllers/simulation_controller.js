@@ -7,7 +7,7 @@ export default class extends Controller {
   static targets = ["canvas", "historyCanvas", "toggleButton", "status", "statusDot", "time", "population", "herbivores", "predators"]
 
   connect() {
-    this.context = this.canvasTarget.getContext("2d")
+    this.canvasContext = this.canvasTarget.getContext("2d")
     this.historyContext = this.historyCanvasTarget.getContext("2d")
     this.running = false
     this.elapsed = 0
@@ -123,7 +123,7 @@ export default class extends Controller {
   }
 
   draw() {
-    const ctx = this.context
+    const ctx = this.canvasContext
     ctx.clearRect(0, 0, WIDTH, HEIGHT)
     ctx.fillStyle = "#111813"
     ctx.fillRect(0, 0, WIDTH, HEIGHT)
